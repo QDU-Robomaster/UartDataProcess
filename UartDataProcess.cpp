@@ -1,9 +1,5 @@
 #include "UartDataProcess.hpp"
 
-#include <chrono>
-
-#include "libxr_def.hpp"
-
 UartDataProcess::UartDataProcess(LibXR::HardwareContainer& hw,
                                  LibXR::ApplicationManager& app)
 {
@@ -28,6 +24,6 @@ UartDataProcess::UartDataProcess(LibXR::HardwareContainer& hw,
 void UartDataProcess::UartCallback(UartData* data)
 {
   UartDataT data_t(*data);
-  data_t.time = std::chrono::steady_clock::now();
+  data_t.time = LibXR::Timebase::GetMicroseconds();
   this->imu_topic_.Publish(data_t);
 }

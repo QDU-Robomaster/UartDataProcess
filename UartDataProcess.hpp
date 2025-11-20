@@ -11,10 +11,10 @@ depends: []
 // clang-format on
 
 #include <array>
-#include <chrono>
 
 #include "app_framework.hpp"
 #include "message.hpp"
+#include "timebase.hpp"
 struct UartData
 {
   std::array<float, 4> Quat;
@@ -24,7 +24,7 @@ struct UartData
 struct UartDataT
 {
   UartData data;
-  std::chrono::steady_clock::time_point time;
+  LibXR::MicrosecondTimestamp time;
   UartDataT(UartData dataRaw) : data(dataRaw) {}
   UartDataT() {}
 };
