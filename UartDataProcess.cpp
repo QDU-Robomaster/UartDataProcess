@@ -1,11 +1,8 @@
 #include "UartDataProcess.hpp"
 
-UartDataProcess::UartDataProcess(LibXR::HardwareContainer& hw,
+UartDataProcess::UartDataProcess(LibXR::HardwareContainer&,
                                  LibXR::ApplicationManager& app)
 {
-  UNUSED(hw);
-  // Hardware initialization example:
-  // auto dev = hw.template Find<LibXR::GPIO>("led");
   this->imu_topic_ = LibXR::Topic("imu_topic", sizeof(UartDataT));
 
   auto uart_topic = LibXR::Topic(LibXR::Topic::Find("uart_topic"));

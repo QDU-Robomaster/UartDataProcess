@@ -10,14 +10,13 @@ depends: []
 === END MANIFEST === */
 // clang-format on
 
-#include <array>
-
 #include "app_framework.hpp"
 #include "message.hpp"
 #include "timebase.hpp"
+#include "transform.hpp"
 struct UartData
 {
-  std::array<float, 4> Quat;
+  LibXR::Quaternion<float> Quat;
   UartData() {}
   UartData(float a, float b, float c, float d) : Quat{a, b, c, d} {}
 };
